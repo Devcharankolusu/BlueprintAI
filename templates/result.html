@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ startup_name }} | BlueprintAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='result.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- ================= HERO ================= -->
+
+<section class="result-hero">
+
+<div class="hero-content">
+
+<h1>{{ startup_name }}</h1>
+
+{% if tagline %}
+<p class="tagline">{{ tagline }}</p>
+{% endif %}
+
+<h3>AI-Powered Startup Blueprint</h3>
+
+<span>Generated using IBM Granite AI</span>
+
+<div class="hero-buttons">
+
+<a href="/"
+class="action-btn secondary-btn">
+
+<i class="bi bi-arrow-left"></i>
+
+Create Another
+
+</a>
+
+<a href="/download_pdf"
+class="action-btn primary-btn">
+
+<i class="bi bi-download"></i>
+
+Download PDF
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+<div class="dashboard-card">
+
+<h4>Industry</h4>
+
+<p>{{ industry }}</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h4>Budget</h4>
+
+<p>{{ budget }}</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h4>Country</h4>
+
+<p>{{ country }}</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h4>Stage</h4>
+
+<p>{{ stage }}</p>
+
+</div>
+
+</section>
+
+<!-- ================= ACCORDION ================= -->
+
+<div class="accordion">
+
+<!-- Executive Summary -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-file-earmark-text"></i>
+
+Executive Summary
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+{{ sections["Executive Summary"]|safe }}
+
+</div>
+
+</div>
+
+<!-- Problem + Solution -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-lightbulb"></i>
+
+Problem & Solution
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>Problem Statement</h4>
+
+{{ sections["Problem Statement"]|safe }}
+
+<br><br>
+
+<h4>Proposed Solution</h4>
+
+{{ sections["Proposed Solution"]|safe }}
+
+<br><br>
+
+<h4>Unique Selling Proposition</h4>
+
+{{ sections["Unique Selling Proposition"]|safe }}
+
+</div>
+
+</div>
+
+<!-- Market -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-bar-chart"></i>
+
+Market & Competition
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>Target Audience</h4>
+
+<p>{{ audience }}</p>
+
+<br><br>
+
+<h4>Market Analysis</h4>
+
+{{ sections["Market Analysis"]|safe }}
+
+<br><br>
+
+<h4>Competitor Analysis</h4>
+
+{{ sections["Competitor Analysis"]|safe }}
+
+</div>
+
+</div>
+
+<!-- Business -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-cash-stack"></i>
+
+Business Model
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>Revenue Model</h4>
+
+{{ sections["Revenue Model"]|safe }}
+
+<br><br>
+
+<h4>Marketing Strategy</h4>
+
+{{ sections["Marketing Strategy"]|safe }}
+
+</div>
+
+</div>
+<!-- SWOT -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-graph-up-arrow"></i>
+
+SWOT & Risk
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>SWOT Analysis</h4>
+
+{{ sections["SWOT Analysis"]|safe }}
+
+<br><br>
+
+<h4>Risk Analysis</h4>
+
+{{ sections["Risk Analysis"]|safe }}
+
+</div>
+
+</div>
+
+
+<!-- AI -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-cpu"></i>
+
+AI & Technology
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>AI Features Recommendation</h4>
+
+{{ sections["AI Features Recommendation"]|safe }}
+
+<br><br>
+
+<h4>Recommended Technology Stack</h4>
+
+{{ sections["Recommended Technology Stack"]|safe }}
+
+</div>
+
+</div>
+
+
+<!-- Budget -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-wallet2"></i>
+
+Budget & Funding
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>Budget Allocation</h4>
+
+{{ sections["Budget Allocation"]|safe }}
+
+<br><br>
+
+<h4>Funding Recommendation</h4>
+
+{{ sections["Funding Recommendation"]|safe }}
+
+</div>
+
+</div>
+
+
+<!-- Roadmap -->
+
+<div class="accordion-item">
+
+<button class="accordion-header">
+
+<span>
+
+<i class="bi bi-calendar-event"></i>
+
+Growth Roadmap
+
+</span>
+
+<i class="bi bi-chevron-down arrow"></i>
+
+</button>
+
+<div class="accordion-content">
+
+<h4>Six-Month Roadmap</h4>
+
+{{ sections["Six-Month Roadmap"]|safe }}
+
+<br><br>
+
+<h4>Future Expansion</h4>
+
+{{ sections["Future Expansion"]|safe }}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const accordions=document.querySelectorAll(".accordion-item");
+
+accordions.forEach(item=>{
+
+    const header=item.querySelector(".accordion-header");
+
+    header.addEventListener("click",()=>{
+
+        const active=document.querySelector(".accordion-item.active");
+
+        if(active && active!==item){
+
+            active.classList.remove("active");
+
+        }
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BlueprintAI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BlueprintAI Logo">
+
+    </div>
+
+    <div class="nav-right">
+
+        <span class="ibm-badge">
+            Powered by IBM Granite
+        </span>
+
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="left">
+
+        <span class="badge">
+            AI Business Planner
+        </span>
+
+        <h1>
+
+            Turn Startup Ideas into
+            <span>Investor-Ready</span>
+            Business Plans.
+
+        </h1>
+
+        <p>
+
+            Generate complete startup blueprints with
+            executive summaries, SWOT analysis,
+            revenue models, funding suggestions and
+            implementation roadmaps in under a minute.
+
+        </p>
+
+        <div class="features">
+
+            <div class="feature-card">
+                 Executive Summary
+                <span class="tooltip">
+                    Get a concise overview of your startup idea, mission and value proposition.
+                </span>
+            </div>
+
+            <div class="feature-card">
+                 Market Analysis
+                <span class="tooltip">
+                    Analyze target audience, competitors and market opportunities.
+                </span>
+            </div>
+
+            <div class="feature-card">
+                 Revenue Strategy
+                <span class="tooltip">
+                    Discover business models and monetization strategies.
+                </span>
+            </div>
+
+            <div class="feature-card">
+                 Marketing Plan
+                <span class="tooltip">
+                    Generate customer acquisition and branding strategies.
+                </span>
+            </div>
+
+            <div class="feature-card">
+                 Risk & SWOT Analysis
+                <span class="tooltip">
+                    Evaluate strengths, weaknesses, opportunities and business risks.
+                </span>
+            </div>
+
+            <div class="feature-card">
+                 6-Month Roadmap
+                <span class="tooltip">
+                    Receive a practical month-by-month execution plan.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="right">
+
+        <div class="form-card">
+
+            <h2>Create Startup Blueprint</h2>
+
+            <form action="/generate" method="POST">
+
+                <label>Describe Your Startup Idea</label>
+
+                <textarea
+                    name="idea"
+                    rows="5"
+                    placeholder="Example: AI powered grocery delivery platform..."
+                    required></textarea>
+
+
+                <div class="row">
+
+                    <div>
+
+                        <label>Industry</label>
+
+                        <select name="industry">
+
+                            <option>Technology</option>
+                            <option>Healthcare</option>
+                            <option>Education</option>
+                            <option>Finance</option>
+                            <option>E-Commerce</option>
+                            <option>Agriculture</option>
+
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label>Budget</label>
+
+                        <select name="budget">
+
+                            <option>Below ₹1 Lakh</option>
+                            <option>₹1–5 Lakhs</option>
+                            <option>₹5–10 Lakhs</option>
+                            <option>Above ₹10 Lakhs</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+                <label>Country / Region</label>
+
+                <select name="country">
+
+                    <option>India</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                    <option>Germany</option>
+                    <option>Singapore</option>
+
+                </select>
+
+                <label>Business Stage</label>
+
+                <select name="stage">
+
+                    <option>Idea Stage</option>
+                    <option>Prototype</option>
+                    <option>MVP Ready</option>
+                    <option>Early Customers</option>
+                    <option>Scaling</option>
+
+                </select>
+                <label>AI Integration Level</label>
+
+                <select name="ai_level">
+
+                    <option>Not Required</option>
+                    <option>Basic AI Features</option>
+                    <option>Advanced AI Features</option>
+                    <option>Core AI Startup</option>
+
+                </select>
+
+
+                <label>Target Audience</label>
+
+                <input
+                    type="text"
+                    name="audience"
+                    placeholder="College Students, Farmers..."
+                    required>
+
+                <button
+                    id="generateBtn"
+                    type="submit">
+
+                     Create Blueprint
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="stats">
+
+    <div class="stat-card">
+
+        <h2>500+</h2>
+        <p>Blueprints Generated</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>25+</h2>
+        <p>Industries Supported</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>95%</h2>
+        <p>User Satisfaction</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>IBM</h2>
+        <p>Granite Powered</p>
+
+    </div>
+
+</section>
+
+<footer>
+
+<h2>BlueprintAI</h2>
+
+<p>
+Helping entrepreneurs transform ideas into investor-ready startup blueprints.
+</p>
+
+</footer>
+<script>
+
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const form=document.querySelector("form");
+    const btn=document.getElementById("generateBtn");
+
+    form.addEventListener("submit",function(){
+
+        btn.innerHTML="⏳ Generating Blueprint...";
+        btn.disabled=true;
+        btn.style.opacity="0.8";
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
