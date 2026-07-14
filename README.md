@@ -1,5 +1,5 @@
 # BlueprintAI
-# 🚀 AI Startup Blueprint Generator
+# AI Startup Blueprint Generator
 
 An AI-powered web application that helps aspiring entrepreneurs transform startup ideas into comprehensive business blueprints using **IBM watsonx.ai** and **IBM Granite Models**.
 
